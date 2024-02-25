@@ -1,0 +1,12 @@
+<launch>
+    <node pkg="BoW3D" name="bow3d_topic" type="bow3d_topic" output="screen">
+        <param name="topic_name" value="/velodyne_points"/>
+        <param name="nScans" value="64"/>
+        <param name="scanPeriod" value="0.1"/>
+        <param name="minimumRange" value="0.1"/>
+        <param name="distanceTh" value="0.4"/>
+        <param name="matchTh" value="6"/>
+    </node>
+    <node name="rviz" pkg="rviz" type="rviz" required="true" 
+        args="-d $(find BoW3D)/rviz/rviz.rviz" />
+</launch>
